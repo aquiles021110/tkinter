@@ -1,0 +1,17 @@
+from tkinter import *
+w=Tk()
+w.geometry('600x600+1720+720')
+w.title('Staff Login')
+w.config(background='Black')
+#label
+n=Label(w,text='Username',font=('Arial',20,'normal'),bg='black',fg='white')
+n.place(x=50,y=50)
+p=Label(w,text='Password',font=('Arial',20,'normal'),bg='black',fg='white')
+p.place(x=50,y=120)
+en=Entry(w,width=20,font=('Arial',20,'normal'),justify=LEFT)
+en.place(x=200,y=50)
+ep=Entry(w,show='*',width=20,font=('Arial',20,'normal'))
+ep.place(x=200,y=120)
+b=Button(w,text='Login',font=('Arial',20,'normal'),bg='black',fg='white',command=w.destroy)
+b.place(x=50,y=190)
+mainloop()
