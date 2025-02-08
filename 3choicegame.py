@@ -30,6 +30,16 @@ def wol(player):
         tie()
     elif player==options[0] and choicecom==options[1]:
         lose()
+    elif player==options[0] and choicecom==options[2]:
+        win()
+    elif player==options[1] and choicecom==options[0]:
+        win()
+    elif player==options[1] and choicecom==options[2]:
+        lose()
+    elif player==options[2] and choicecom==options[0]:
+        lose()
+    elif player==options[2] and choicecom==options[1]:
+        win()
 l1=Label(w,text='Rock Paper Scissors')
 l1.pack()
 t=Label(w,font=('arial'))
@@ -38,11 +48,11 @@ f2=Frame(w)
 f2.pack()
 l2=Label(f2,text='Your options:')
 l2.grid(row=0,column=0)
-b1=Button(f2,text='Rock',bg='blue',fg='black',command=None)
+b1=Button(f2,text='Rock',bg='blue',fg='black',command=lambda:wol(options[0]))
 b1.grid(row=1,column=1,padx=10)
-b2=Button(f2,text='Paper',bg='grey',fg='black',command=None)
+b2=Button(f2,text='Paper',bg='grey',fg='black',command=lambda:wol(options[1]))
 b2.grid(row=1,column=2,padx=10)
-b3=Button(f2,text='Scissors',bg='pink',fg='black',command=None)
+b3=Button(f2,text='Scissors',bg='pink',fg='black',command=lambda:wol(options[2]))
 b3.grid(row=1,column=3,padx=10)
 l3=Label(f2,text='Score:')
 l3.grid(row=2,column=0)
