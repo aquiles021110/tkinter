@@ -14,8 +14,8 @@ timerid=None
 running=False
 def buttonp():
     global pause,timerid
-    pause=True
-    if pause==True:
+    pause=not pause
+    if not pause:
         if timerid:
             w.after_cancel(timerid)
         simplify()
@@ -30,7 +30,7 @@ def count():
 def simplify():
     global pause,totalsec,timerid,running
     if totalsec>0:
-        if pause==True:
+        if not pause:
             totalsec-=1
             m,s=divmod(totalsec,60)
             h,m=divmod(m,60)
@@ -40,8 +40,7 @@ def simplify():
         timerid=w.after(1000,simplify)
     elif totalsec==0:
         messagebox.showinfo('Done',"time's up!")
-        running=False
-            
+        running=False  
 entryh=Entry(w,width=5,textvariable=hour)
 entryh.grid(row=0,column=0)
 entrym=Entry(w,width=5,textvariable=min)
