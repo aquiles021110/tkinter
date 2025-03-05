@@ -11,9 +11,9 @@ class Tictactoe():
     def widgets(self):
         for r in range(3):
             for c in range(3):
-                b=Button(self.win,text='',font=('Bold',40),width=5,height=2,command=lambda i=r,j=c:self.click(row,column))
-                b.grid(row=i,column=j)
-                self.buttons[i][j]=b
+                b=Button(self.win,text='',font=('Bold',40),width=5,height=2,command=lambda x=r,y=c:self.click(x,y))
+                b.grid(row=r,column=c)
+                self.buttons[r][c]=b
     def click(self,i,j):
         if self.buttons[i][j]['text']=='' and not self.winner():
             self.buttons[i][j]['text']=self.currentplayer
