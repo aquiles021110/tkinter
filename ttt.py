@@ -4,7 +4,7 @@ class Tictactoe():
     def __init__(self,win):
         self.win=win
         self.win.title('Tic Tac Toe')
-        self.currentplayer='x'
+        self.currentplayer='X'
         self.buttons=[[None for i in range(3)]for j in range(3)]
         print(self.buttons)
         self.widgets()
@@ -19,8 +19,10 @@ class Tictactoe():
             self.buttons[i][j]['text']=self.currentplayer
             if self.winner():
                 messagebox.showinfo('WIN',f'{self.currentplayer} has won.')
+                self.widgets()
             elif self.draw():
                 messagebox.showinfo('DRAW','The game has ended in a Draw')
+                self.widgets()
             else:
                 if self.currentplayer=='X':
                     self.currentplayer='O'
