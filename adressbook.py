@@ -61,7 +61,7 @@ def byebye():
         dele()
     else:
         messagebox.showerror('Error','Make a selection')
-def info(Event):
+'''def info(Event):
     selction=listb.curselection()
     strvar=''
     if selction: 
@@ -72,8 +72,22 @@ def info(Event):
         strvar+=f'Mobile: {detail[1]}\n'
         strvar+=f'Email: {detail[2]}\n'
         strvar+=f'DOB: {detail[3]}\n'
-    tex=Label(w,text=strvar)
-#buttons
+    tex=Label(w,text=strvar)'''
+def info(event):
+    c=Toplevel(w)
+    selection=listb.curselection()
+    data=''
+    if selection:
+        key=listb.get(selection)
+        data='Name: '+key+'\n'
+        details=adressbook[key]
+        data+='Address: '+details[0]+'\n'
+        data+='Mobile: '+details[1]+'\n'
+        data+='Email: '+details[2]+'\n'
+        data+='DOB: '+details[3]+'\n'
+    l=Label(c,text=data)
+    l.pack()
+#sbuttons
 b1=Button(w,text='Open',command=opnfl,width=12)
 b2=Button(w,text='Edit',command=ed,width=12)
 b3=Button(w,text='Delete',command=byebye,width=12)
@@ -90,6 +104,7 @@ listb=Listbox(w,width=50,height=30)
 #listbox place
 listb.place(x=50,y=80)
 listb.bind('<<ListboxSelect>>',info)
+#bind
 #bagels
 l1=Label(w,text='Address Book',font=('Arial',20,'bold'))
 l2=Label(w,text='Name:',width=12)
